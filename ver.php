@@ -11,7 +11,7 @@ $resultado = mysqli_query($conn, $query);
 $fila = mysqli_fetch_assoc($resultado);
 
 // Realizar una consulta para obtener los comentarios del empleado
-$query_comentarios = "SELECT * FROM comentarios WHERE id = $id";
+$query_comentarios = "SELECT * FROM comentarios WHERE empleado_id = $id";
 $resultado_comentarios = mysqli_query($conn, $query_comentarios);
 
 ?>
@@ -30,6 +30,30 @@ $resultado_comentarios = mysqli_query($conn, $query_comentarios);
                 <div class="card-body">
                     <p><?php echo $fila_comentario["comentario"]; ?></p>
                     <small><?php echo $fila_comentario["fecha_publicacion"]; ?></small>
+                    <form method="POST" action="eliminar_comentario.php">
+                        <input type="hidden" name="id_comentario" value="<?php echo $fila_comentario["id"]; ?>">
+                        <input type="hidden" name="id_empleado" value="<?php echo $id; ?>">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarComentario<?php echo $fila_comentario["id"]; ?>">
+                            Eliminar comentario
+                        </button>
+                        <div class="modal fade" id="eliminarComentario<?php echo $fila_comentario["id"]; ?>" tabindex="-1" aria-labelledby="eliminarComentario<?php echo $fila_comentario["id"]; ?>Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="eliminarComentario<?php echo $fila_comentario["id"]; ?>Label">¿Está seguro de que desea eliminar el comentario?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Esta acción no se puede deshacer.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         <?php } ?>
