@@ -28,7 +28,7 @@ if (mysqli_num_rows($resultado) > 0) {
         echo "<td>" . $fila["puesto"] . "</td>";
         echo "<td>" . $fila["fecha_ingreso"] . "</td>";
         echo "<td>";
-        echo "<a href=\"ver.php?id=" . $fila["id"] . "\" class=\"btn btn-primary me-1\"><i class=\"bi bi-pencil-fill\"></i></a>";
+        echo "<a href=\"ver.php?id=" . $fila["id"] . "\" class=\"btn btn-success me-1\"><i class=\"bi bi-journal-text\"></i></a>";
         echo "<a href=\"editar.php?id=" . $fila["id"] . "\" class=\"btn btn-primary me-1\"><i class=\"bi bi-pencil-fill\"></i></a>";
         echo "<a href=\"eliminar.php?id=" . $fila["id"] . "\" class=\"btn btn-danger\"><i class=\"bi bi-trash-fill\"></i></a>";
         echo "</td>";
