@@ -11,9 +11,9 @@ if (mysqli_num_rows($resultado) > 0) {
     echo '<table class="table text-center align-middle">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
                 <th scope="col">Identificación</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
                 <th scope="col">Puesto</th>
                 <th scope="col">Fecha de ingreso</th>
                 <th scope="col">Opciones</th>
@@ -22,9 +22,9 @@ if (mysqli_num_rows($resultado) > 0) {
             <tbody>';
     while ($fila = mysqli_fetch_assoc($resultado)) {
         echo "<tr scope=\"row\">";
-        echo "<td>" . $fila["id"] . "</td>";
-        echo "<td>" . $fila["nombre"] . "</td>";
         echo "<td>" . $fila["identificacion"] . "</td>";
+        echo "<td>" . $fila["nombre"] . "</td>";
+        echo "<td>" . $fila["apellido"] . "</td>";
         echo "<td>" . $fila["puesto"] . "</td>";
         echo "<td>" . $fila["fecha_ingreso"] . "</td>";
         echo "<td>";

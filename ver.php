@@ -19,6 +19,7 @@ $resultado_comentarios = mysqli_query($conn, $query_comentarios);
     <div class="col-md-6">
         <h1>Información del empleado</h1>
         <p><strong>Nombre:</strong> <?php echo $fila["nombre"]; ?></p>
+        <p><strong>Apellido:</strong> <?php echo $fila["apellido"]; ?></p>
         <p><strong>Identificación:</strong> <?php echo $fila["identificacion"]; ?></p>
         <p><strong>Puesto:</strong> <?php echo $fila["puesto"]; ?></p>
         <p><strong>Fecha de ingreso:</strong> <?php echo $fila["fecha_ingreso"]; ?></p>
